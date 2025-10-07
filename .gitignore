@@ -1,0 +1,8 @@
+#Dependancy Files
+*.d
+
+#Object Files
+*.o
+
+#.exe file
+*.exe
