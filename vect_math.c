@@ -13,7 +13,6 @@
 #include "vect.h"
 #include <stdio.h>
 
-
 /**
 * @brief Adds two vects together.
 * @param a The first vector.
@@ -68,3 +67,8 @@ vect scalar_mult(double mult, vect *v) {
     return c;
 }
 
+float dot_product(vect *a, vect *b) {
+    //perform dot product
+    return ((a->a*b->a) + (a->b*b->b) + (a->c*b->c));
+
+}
