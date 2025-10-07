@@ -2,7 +2,7 @@
 * @file io_helper.h
 * @author Nathan Eppler <epplern@msoe.edu>
 * @brief Describes functions to assist main.c in parsing input and displaying output.
-* @date 27 September 2025
+* @date 7 October 2025
 * 
 * Course: CPE2600
 * Section: 111
