@@ -2,7 +2,7 @@
 * @file main.c
 * @author Nathan Eppler <epplern@msoe.edu>
 * @brief A mini MATLAB program to do simple vector calculations.
-* @date 27 September 2025
+* @date 7 October 2025
 * 
 * Course: CPE2600
 * Section: 111
