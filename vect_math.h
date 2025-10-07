@@ -21,4 +21,6 @@ vect sub(vect *a, vect *b);
 
 vect scalar_mult(double mult, vect *a);
 
+float dot_product(vect *a, vect *b);
+
 #endif 
