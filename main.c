@@ -15,6 +15,7 @@
 #include <stdbool.h>
 #include "vect.h"
 #include "io_helper.h"
+#include "op_helper.h"
 
 int main(int argc, char *argv[]) {
     char input[100];
@@ -34,6 +35,8 @@ int main(int argc, char *argv[]) {
         printf("miniMATLAB> ");
         fgets(input, 99, stdin);
 
+        replace(input, ',', ' ');
+        
         //parse arguments
         arg1 = strtok(input, " ");
         arg2 = strtok(NULL, " ");
@@ -41,8 +44,6 @@ int main(int argc, char *argv[]) {
         arg4 = strtok(NULL, " ");
         arg5 = strtok(NULL, " ");
         arg6 = strtok(NULL, " ");
-
-        //FIXME, TAKE IN ALL ARGUMENTS, IF ',' replace with " ", then parse
 
         if (arg6 == NULL) { //check if the number of arguments is valid (5 args max)
             if (arg5 != NULL) {
@@ -79,7 +80,7 @@ int main(int argc, char *argv[]) {
                     write_vect_data(ret_loc, *v);
                 } else {
                     //error in finding vector
-                    printf("Error: Invalid argument '%s' Expected: v_name", (ret_loc == -1) ? arg1 : arg2);
+                    printf("Error: Invalid argument '%s' Expected: v_name\n", (ret_loc == -1) ? arg1 : arg2);
                 }
             } else if (arg3 != NULL) {
                 //then must be an v1 op v2
