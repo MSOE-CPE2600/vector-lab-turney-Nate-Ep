@@ -29,29 +29,29 @@ void display_op(char *arg1, char *op, char *arg2) {
     int v_arg1_loc = findvect(arg1);
     int v_arg2_loc = findvect(arg2);
 
-    if (*op == '*') {
+    if (v_arg1_loc != -1 && v_arg2_loc != -1) {
+        if (*op == '*') {
             //multiply
             mult(-1, arg1, arg2, v_arg1_loc, v_arg2_loc);
         } else if (*op == '+') {
-            if (v_arg1_loc != -1 && v_arg2_loc != -1) {
-                vect result = add(getvect(v_arg1_loc), getvect(v_arg2_loc));
-                print_result(result);
-            } else {
-                //invalid argument
-                printf("Invalid argument: Could not find vector: %s\n", (v_arg1_loc == -1) ? arg1 : arg2);
-            }
+            vect result = add(getvect(v_arg1_loc), getvect(v_arg2_loc));
+            print_result(result);
         } else if (*op == '-') {
-            if (v_arg1_loc != -1 && v_arg2_loc != -1) {
-                vect result = sub(getvect(v_arg1_loc), getvect(v_arg2_loc));
-                print_result(result);
-            } else {
-                //invalid argument
-                printf("Invalid argument: Could not find vector: %s\n", (v_arg1_loc == -1) ? arg1 : arg2);
-            }
+            vect result = sub(getvect(v_arg1_loc), getvect(v_arg2_loc));
+            print_result(result);
+        } else if (*op == '.') {
+            vect *v1 = getvect(v_arg1_loc);
+            vect *v2 = getvect(v_arg2_loc);
+            float result = dot_product(v1, v2);
+            printf("%c . %c = %f\n", v1->name, v2->name, result);
         } else {
             //invalid expression
             printf("Error: Invalid expression: %s %s %s\n", arg1, op, arg2);
         }
+    } else {
+        //invalid argument
+        printf("Invalid argument: Could not find vector: %s\n", (v_arg1_loc == -1) ? arg1 : arg2);
+    }
 }
 
 /**
