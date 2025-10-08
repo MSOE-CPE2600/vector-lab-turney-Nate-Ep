@@ -90,8 +90,20 @@ int main(int argc, char *argv[]) {
                 quit = display(arg1);
             }
         } else {
-            //print error
-            printf("ERROR: Too many arguments, expected 5 arguments maximum.\n");
+            //check if the last argument is just full of spaces or new lines
+            bool valid_in = true;
+            size_t length = strlen(arg6);
+            for (size_t i = 0; i < length; ++i) {
+                if (arg6[i] != ' ' && arg6[i] != '\n') {
+                    valid_in = false;
+                    break;
+                }
+            }
+
+            if (valid_in == false) {
+                //print error
+                printf("ERROR: Too many arguments, expected 5 arguments maximum.\n");
+            }
         }
        
     } while (!quit);

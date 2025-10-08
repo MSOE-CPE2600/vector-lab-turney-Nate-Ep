@@ -163,8 +163,9 @@ bool display(char *code) {
                "8. help -- Displays this menu.\n\n\n");
         printf("Note: \n-- v_name must be 1 character in length\n"
                 "-- all arguments must be sepparated by one space\n"
-                "-- op must be either +, -, or *. "
-                "These perform vector addition, subtraction, and scalar multiplication respectively.\n");
+                "-- op must be either +, -, *, ., or x. "
+                "These perform vector addition, subtraction, scalar multiplication,\n"
+                " dot product, and cross product respectively.\n");
     } else {
         // Likely a vector name if none of the above conditions are met, but still need to validate
         int loc = findvect(code);

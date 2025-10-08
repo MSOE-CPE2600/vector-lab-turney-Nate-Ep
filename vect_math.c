@@ -73,9 +73,8 @@ float dot_product(vect *a, vect *b) {
 
 }
 
-vect cross_product(vect *a, vect *b, char *name) {
+vect cross_product(vect *a, vect *b) {
     vect c;
-    c.name = *name;
 
     c.a = (a->b * b->c) - (a->c * b->b);
     c.b = (a->c * b->a) - (a->a * b->c);

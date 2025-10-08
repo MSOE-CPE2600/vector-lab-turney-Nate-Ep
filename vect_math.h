@@ -23,6 +23,6 @@ vect scalar_mult(double mult, vect *a);
 
 float dot_product(vect *a, vect *b);
 
-vect cross_product(vect *a, vect *b, char *name);
+vect cross_product(vect *a, vect *b);
 
 #endif 

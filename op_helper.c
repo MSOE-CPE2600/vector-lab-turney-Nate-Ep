@@ -44,6 +44,9 @@ void display_op(char *arg1, char *op, char *arg2) {
             vect *v2 = getvect(v_arg2_loc);
             float result = dot_product(v1, v2);
             printf("%c . %c = %f\n", v1->name, v2->name, result);
+        } else if (*op == 'x') {
+            vect result = cross_product(getvect(v_arg1_loc), getvect(v_arg2_loc));
+            print_result(result);
         } else {
             //invalid expression
             printf("Error: Invalid expression: %s %s %s\n", arg1, op, arg2);
@@ -110,6 +113,15 @@ void str_op(char *ret, char *arg1, char *op, char *arg2) {
         } else if (*op == '-') {
             if (v_arg1_loc != -1 && v_arg2_loc != -1) {
                 vect result = sub(getvect(v_arg1_loc), getvect(v_arg2_loc));
+                write_vect_data(v_ret_loc, result);
+            } else {
+                //invalid argument
+                printf("Invalid argument: Could not find vector: %s\n", (v_arg1_loc == -1) ? arg1 : arg2);
+                valid_op = false;
+            }
+        } else if (*op == 'x') {
+            if (v_arg1_loc != -1 && v_arg2_loc != -1) {
+                vect result = cross_product(getvect(v_arg1_loc), getvect(v_arg2_loc));
                 write_vect_data(v_ret_loc, result);
             } else {
                 //invalid argument
