@@ -17,6 +17,7 @@
 #include "vect.h"
 #include "io_helper.h"
 #include "op_helper.h"
+#include "loader.h"
 
 void free_mem();
 
@@ -119,8 +120,6 @@ int main(int argc, char *argv[]) {
         }
        
     } while (!quit);
-    
-    //TODO Make sure to update and free all allocated memory upon exit
 
     atexit(free_mem);
     return 0;
