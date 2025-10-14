@@ -145,7 +145,7 @@ bool display(char *code) {
     } else if (strcmp(code, "clear\n") == 0) {
         //clear the vector memory
         printf("Clearing vector memory...\n");
-        clear();
+        clear(0);
     } else if (strcmp(code, "help\n") == 0) {
         //Display the help menu
         printf("Options:\n\n");
@@ -159,8 +159,9 @@ bool display(char *code) {
             "-- All values must be sepparated by either a space or a comma.\n\n");
         printf("5. list -- Displays all active vectors in vector memory.\n\n"
                "6. clear -- Clears vector memory.\n\n"
-               "7. quit -- Terminates the program.\n\n"
-               "8. help -- Displays this menu.\n\n\n");
+               "7. load <path> -- Loads a .csv comma sepparated file. Merges with current vector memory.\n\n"
+               "8. quit -- Terminates the program.\n\n"
+               "9. help -- Displays this menu.\n\n\n");
         printf("Note: \n-- v_name must be 1 character in length\n"
                 "-- all arguments must be sepparated by one space\n"
                 "-- op must be either +, -, *, ., or x. "

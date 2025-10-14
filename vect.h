@@ -30,10 +30,14 @@ int findvect(char *name);
 
 vect* getvect(int addr);
 
-void clear();
+void clear(int start);
 
 int get_vmem_size(void);
 
 void write_vect_data(int addr, vect v);
+
+void free_vect_mem();
+
+void init_vect_mem();
 
 #endif

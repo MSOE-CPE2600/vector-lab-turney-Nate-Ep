@@ -10,12 +10,15 @@
 *
 */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 #include "vect.h"
 #include "io_helper.h"
 #include "op_helper.h"
+
+void free_mem();
 
 int main(int argc, char *argv[]) {
     char input[100];
@@ -28,7 +31,8 @@ int main(int argc, char *argv[]) {
     bool quit = false;
 
     //initialize and clear vectors (Set all vect mem locations to open)
-    clear();
+    init_vect_mem();
+    clear(0);
 
     do {
         //make sure none of the arguments input are blank
@@ -85,6 +89,14 @@ int main(int argc, char *argv[]) {
             } else if (arg3 != NULL) {
                 //then must be an v1 op v2
                 display_op(arg1, arg2, arg3);
+            } else if (arg2 != NULL) {
+                //likely a load <path> command -- but need to check arg1
+                if (strcmp(arg1, "load") == 0) {
+                    //load a file
+                    printf("Loading a file\n");
+                } else {
+                    printf("Error: Invalid command: %s\n", arg1);
+                }
             } else {
                 //one argument command, check list of potential display commands.
                 quit = display(arg1);
@@ -108,9 +120,18 @@ int main(int argc, char *argv[]) {
        
     } while (!quit);
     
+    //TODO Make sure to update and free all allocated memory upon exit
+
+    atexit(free_mem);
     return 0;
 }
 
+/**
+ * @brief Frees vector memory.
+ */
+void free_mem() {
+    free_vect_mem();
+}
 
 
 /* Arg 1 potential values:
