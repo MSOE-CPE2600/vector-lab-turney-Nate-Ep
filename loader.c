@@ -17,12 +17,39 @@
 #include "vect.h"
 #include "io_helper.h"
 
+void add_csvtag(char *path);
+bool validate_path_format(char *path, bool *valid_ending);
+
 /**
  * @brief Loads a .csv comma sepparated file into vector memory.
  * Prints an error if the function is given an invalid path or file data.
  * @param path The path of the file to load (relative or absolute).
  */
 void load_file(char *path) {
+    bool valid_ending = false;
+    bool valid_format;
+    FILE *ptr;
+
+    valid_format = validate_path_format(path, &valid_ending);
+
+    if (valid_format && !valid_ending) {
+        add_csvtag(path);
+    }
+
+    if (valid_format && valid_ending) {
+        //remove '\n' char at end from user input, end with null terminator
+        int length = strlen(path);
+        *(path+length-1) = '\0';
+    }
+    
+    if (valid_format) {
+        ptr = fopen(path, "r");
+        if (ptr != NULL) {
+            // TODO LOAD FILE INTO VECTOR MEMROY
+        } else {
+            printf("FALURE: FILE NOT OPENED\n");
+        }
+    }
 
 }
 

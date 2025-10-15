@@ -22,7 +22,7 @@
 void free_mem();
 
 int main(int argc, char *argv[]) {
-    char input[100];
+    char input[300];
     char *arg1;
     char *arg2;
     char *arg3;
@@ -95,6 +95,7 @@ int main(int argc, char *argv[]) {
                 if (strcmp(arg1, "load") == 0) {
                     //load a file
                     printf("Loading a file\n");
+                    load_file(arg2);
                 } else {
                     printf("Error: Invalid command: %s\n", arg1);
                 }

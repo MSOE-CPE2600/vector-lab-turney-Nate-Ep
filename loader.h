@@ -13,8 +13,6 @@
 #ifndef LOADER_H
 #define LOADER_H
 
-bool validate_path_format(char *path);
-
-void add_csvtag(char *path);
+void load_file(char *path);
 
 #endif
