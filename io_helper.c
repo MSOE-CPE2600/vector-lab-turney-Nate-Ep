@@ -55,7 +55,7 @@ bool arg_to_double(char *arg, double *val) {
     char *endptr;
     *val = strtod(arg, &endptr);
 
-    if (*endptr == '\0' || *endptr == '\n' || *endptr == ' ') {
+    if (*endptr == '\0' || *endptr == '\n' || *endptr == ' ' || *endptr == '\r') {
         //valid argument, return true
         return true;
     } else {

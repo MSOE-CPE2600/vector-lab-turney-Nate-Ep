@@ -6,3 +6,6 @@
 
 #.exe file
 *.exe
+
+#.xlsx files
+*.xlsx
