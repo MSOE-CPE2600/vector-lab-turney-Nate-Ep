@@ -59,7 +59,7 @@ bool arg_to_double(char *arg, double *val) {
         //valid argument, return true
         return true;
     } else {
-        printf("Invalid Argument: \'%s\' Extected type double.\n", arg);
+        printf("Invalid Argument: \'%s\' Expected type double.\n", arg);
         return false;
     }
 }
