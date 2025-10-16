@@ -58,7 +58,6 @@ bool reallocate_vect_mem(int size) {
 * @return 0 if the new vector was added. -1 if vector memory is full.
 */
 int addvect(vect new_vect) {
-    printf("Calling add: Size %d\n", v_mem_size);
     for (int i = 0; i < v_mem_size; ++i) {
         if (vect_mem[i].open == true) {
             vect_mem[i] = new_vect;

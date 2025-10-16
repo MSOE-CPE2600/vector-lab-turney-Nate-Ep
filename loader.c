@@ -16,9 +16,11 @@
 #include <string.h>
 #include "vect.h"
 #include "io_helper.h"
+#include "op_helper.h"
 
 void add_csvtag(char *path);
 bool validate_path_format(char *path, bool *valid_ending);
+vect parse_vect(char *input, const int len);
 
 /**
  * @brief Loads a .csv comma sepparated file into vector memory.
@@ -26,6 +28,8 @@ bool validate_path_format(char *path, bool *valid_ending);
  * @param path The path of the file to load (relative or absolute).
  */
 void load_file(char *path) {
+    const int INPUT_LEN = 20;
+    char input[INPUT_LEN];
     bool valid_ending = false;
     bool valid_format;
     FILE *ptr;
@@ -46,8 +50,12 @@ void load_file(char *path) {
         ptr = fopen(path, "r");
         if (ptr != NULL) {
             // TODO LOAD FILE INTO VECTOR MEMROY
+            fgets(input, INPUT_LEN-1, ptr);
+            input[INPUT_LEN] = '\0'; //set last char to null
+            printf("Input: %s", input);
+            parse_vect(input, INPUT_LEN);
         } else {
-            printf("FALURE: FILE NOT OPENED\n");
+            printf("FALURE: FILE NOT OPENED\nPlease check the file path.\n\n");
         }
     }
 
@@ -94,6 +102,67 @@ bool validate_path_format(char *path, bool *valid_ending) {
 
     return valid;
 }
+
+/**
+ * @brief Parses an input string into a vector. Displays an error if invalid format.
+ * @param input The input string to parse.
+ * @param len The length of the input string.
+ */
+vect parse_vect(char *input, const int len) {
+    //int num_args = num_vals(input, len);
+
+    char *v_name = strtok(input, ",");
+    char *val_1 = strtok(NULL, ",");
+    char *val_2 = strtok(NULL, ",");
+    char *val_3 = strtok(NULL, ",");
+    char *extra = strtok(NULL, ",");
+    vect ret;
+
+    //FIXME Error detecting if there is a 3rd value or not
+    //Regardless of if a value exists in a row, it will at least be a ',' for each column in the entire data
+
+    //TODO Ideas:
+    // If extra != Null, invalid
+    // otherwise, leave value parsing up to the float parser?
+    //if v_name or val1 or val2 or val3 are null, invalid
+    //make use of the store-op function
+    if (extra == NULL) {
+        printf("v_name: %s\n", v_name);
+        printf("len: %ld\n\n", strlen(v_name));
+
+        // Remove BOM if v_name starts with it
+        if ((unsigned char)v_name[0] == 0xEF &&
+            (unsigned char)v_name[1] == 0xBB &&
+            (unsigned char)v_name[2] == 0xBF) {
+            v_name += 3;
+        }
+
+        //FIXME Start of .csv file contains UTF-8 BOM Encoding
+        printf("val_1: %s\n", val_1);
+        printf("val_2: %s\n", val_2);
+        printf("val_3: %s\n", val_3);
+        str_op(v_name, val_1, val_2, val_3);
+    } else { //FIXME Extra can not be null but still hold no value
+        printf("Error: too may values input: skipping\n");
+    }
+    return ret;
+}
+
+// /**
+//  * @brief Counts the number of values sepparated by a comma in a given input string.
+//  * @param input The input string to count.
+//  * @param len The length of the input.
+//  */
+// int num_vals(char *input, int len) {
+//     int count = 0;
+//     for (int i = 0; i < len; ++i) {
+//         if (*(input+i) == ',') {
+//             count += 1;
+//         }
+//     }
+
+//     return count;
+// }
 
 /**
  * @brief Adds a .csv ending to a path.

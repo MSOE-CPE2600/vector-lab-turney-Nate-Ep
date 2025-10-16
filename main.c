@@ -21,6 +21,8 @@
 
 void free_mem();
 
+//TODO Implement save function
+
 int main(int argc, char *argv[]) {
     char input[300];
     char *arg1;
@@ -94,7 +96,6 @@ int main(int argc, char *argv[]) {
                 //likely a load <path> command -- but need to check arg1
                 if (strcmp(arg1, "load") == 0) {
                     //load a file
-                    printf("Loading a file\n");
                     load_file(arg2);
                 } else {
                     printf("Error: Invalid command: %s\n", arg1);
