@@ -2,11 +2,11 @@
 * @file loader.c
 * @author Nathan Eppler <epplern@msoe.edu>
 * @brief Describes functions to load .csv files to merge with vector memory.
-* @date 7 October 2025
+* @date 16 October 2025
 * 
 * Course: CPE2600
 * Section: 111
-* Due: 10 October 2025
+* Due: 27 October 2025
 *
 */
 

@@ -2,11 +2,11 @@
 * @file loader.c
 * @author Nathan Eppler <epplern@msoe.edu>
 * @brief Defines functions to load .csv files to merge with vector memory.
-* @date 7 October 2025
+* @date 16 October 2025
 * 
 * Course: CPE2600
 * Section: 111
-* Due: 10 October 2025
+* Due: 27 October 2025
 *
 */
 
@@ -28,7 +28,6 @@ void load_vect(char *input, const int len);
  * @param path The path of the file to load (relative or absolute).
  */
 void load_file(char *path) {
-    //FIXME Error loading saved files
     const int INPUT_LEN = 200;
     char input[INPUT_LEN];
     bool valid_ending = false;

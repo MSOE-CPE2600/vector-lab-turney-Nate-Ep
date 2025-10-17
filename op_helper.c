@@ -156,7 +156,7 @@ void str_op(char *ret, char *arg1, char *op, char *arg2) {
                 //invalid op
                 valid_op = false;
                 printf("Error assigning values: Expected: v_name = arg1, arg2, arg3.\n");
-                //TODO Update to print out the bad values?
+                //TODO Update to print out values?
             }
         }
         

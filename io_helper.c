@@ -160,8 +160,9 @@ bool display(char *code) {
         printf("5. list -- Displays all active vectors in vector memory.\n\n"
                "6. clear -- Clears vector memory.\n\n"
                "7. load <path> -- Loads a .csv comma sepparated file. Merges with current vector memory.\n\n"
-               "8. quit -- Terminates the program.\n\n"
-               "9. help -- Displays this menu.\n\n\n");
+               "8. save <path> -- Saves vector memory to a .csv comma sepparated file.\n\n"
+               "9. quit -- Terminates the program.\n\n"
+               "10. help -- Displays this menu.\n\n\n");
         printf("Note: \n-- v_name must be 1 character in length\n"
                 "-- all arguments must be sepparated by one space\n"
                 "-- op must be either +, -, *, ., or x. "
