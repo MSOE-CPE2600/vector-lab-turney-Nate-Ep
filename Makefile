@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-c -Wextra
+CFLAGS=-c -Wextra -g
 LDFLAGS= -o start.exe -std=c99
-SOURCES= main.c vect_math.c vect.c io_helper.c op_helper.c loader.c
+SOURCES= main.c vect_math.c vect.c io_helper.c op_helper.c loader.c saver.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=start.exe
 

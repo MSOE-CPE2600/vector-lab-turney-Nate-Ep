@@ -28,7 +28,8 @@ void load_vect(char *input, const int len);
  * @param path The path of the file to load (relative or absolute).
  */
 void load_file(char *path) {
-    const int INPUT_LEN = 20;
+    //FIXME Error loading saved files
+    const int INPUT_LEN = 200;
     char input[INPUT_LEN];
     bool valid_ending = false;
     bool valid_format;
@@ -53,11 +54,12 @@ void load_file(char *path) {
                 input[INPUT_LEN] = '\0'; //set last char to null
                 load_vect(input, INPUT_LEN);
             }
+            fclose(ptr);
         } else {
             printf("FALURE: FILE NOT OPENED\nPlease check the file path.\n\n");
         }
     }
-
+    
 }
 
 /**
@@ -115,7 +117,7 @@ void load_vect(char *input, const int len) {
     char *extra = strtok(NULL, ",");
 
     //check if val_3 is a valid char, and make sure there is no extra characters
-    if ((extra == NULL && *val_3 != '\0' && *val_3 != '\n' && *val_3 != '\r') || 
+    if ((extra == NULL && val_3 != NULL && *val_3 != '\0' && *val_3 != '\n' && *val_3 != '\r') || 
             (extra != NULL && *extra == '\0')) {
         //if all conditions are met, load and store the new vector
 

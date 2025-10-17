@@ -18,10 +18,12 @@
 #include "io_helper.h"
 #include "op_helper.h"
 #include "loader.h"
+#include "saver.h"
 
 void free_mem();
 
 //TODO Implement save function
+//FIXME Remove -g flag in Makefile
 
 int main(int argc, char *argv[]) {
     char input[300];
@@ -97,6 +99,9 @@ int main(int argc, char *argv[]) {
                 if (strcmp(arg1, "load") == 0) {
                     //load a file
                     load_file(arg2);
+                } else if (strcmp(arg1, "save") == 0) {
+                    //TODO UPDATE HELP MENU
+                    save(arg2);
                 } else {
                     printf("Error: Invalid command: %s\n", arg1);
                 }

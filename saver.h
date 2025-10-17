@@ -13,4 +13,6 @@
 #ifndef SAVER_H
 #define SAVER_H
 
+void save(char *path);
+
 #endif

@@ -15,4 +15,8 @@
 
 void load_file(char *path);
 
+bool validate_path_format(char *path, bool *valid_ending);
+
+void add_csvtag(char *path);
+
 #endif
