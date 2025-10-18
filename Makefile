@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-c -Wextra
+CFLAGS=-c -g -Wextra
 LDFLAGS= -o start.exe -std=c99
 SOURCES= main.c vect_math.c vect.c io_helper.c op_helper.c loader.c saver.c
 OBJECTS=$(SOURCES:.c=.o)

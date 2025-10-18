@@ -29,11 +29,12 @@ void display_op(char *arg1, char *op, char *arg2) {
     int v_arg1_loc = findvect(arg1);
     int v_arg2_loc = findvect(arg2);
 
-    if (v_arg1_loc != -1 && v_arg2_loc != -1) {
-        if (*op == '*') {
+    if (*op == '*' && (v_arg1_loc != -1 || v_arg2_loc != -1)) {
             //multiply
+            //FIXME Shawn is mean, this should be allowed even if one vect loc is -1
             mult(-1, arg1, arg2, v_arg1_loc, v_arg2_loc);
-        } else if (*op == '+') {
+    } else if (v_arg1_loc != -1 && v_arg2_loc != -1) {
+        if (*op == '+') {
             vect result = add(getvect(v_arg1_loc), getvect(v_arg2_loc));
             print_result(result);
         } else if (*op == '-') {
