@@ -32,6 +32,10 @@ void save(char *path) {
 
         if (!valid_ending) {
             add_csvtag(path);
+        } else {
+            //remove '\n' char at end from user input, end with null terminator
+             int length = strlen(path);
+            *(path+length-1) = '\0';
         }
 
         FILE *ptr = fopen(path, "w");
