@@ -151,8 +151,8 @@ bool display(char *code) {
         printf("Options:\n\n");
         printf("1. v_name1 = v_name2 op v_name3\n"
             "-- Stores the result of v_name2 op v_name3 in v_name1\n\n");
-        printf("2. v_name2 op v_name3\n"
-            "-- Displays the result of v_name2 op v_name3 in v_name1\n\n");
+        printf("2. v_name1 op v_name2\n"
+            "-- Displays the result of v_name1 op v_name2\n\n");
         printf("3. v_name -- Displays the value of v_name\n\n");
         printf("4. v_name = val_1 val_2 val_3\n"
             "-- Assigns v_name with the values val_1, val_2, val_3.\n"
